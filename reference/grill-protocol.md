@@ -24,11 +24,11 @@ Every question is written for the owner as a decision-maker, not as an engineer.
 - **No jargon, no tool names, no acronyms**, unless the question is literally
   about that tool. The owner should never have to look up a word to answer.
 - **Concrete scenarios, not shorthand.** Instead of "what's your consistency
-  model," ask "if two people edit the same thing at once, whose change wins — or
+  model," ask "if two people edit the same thing at once, whose change wins, or
   should that never be able to happen?" Paint the situation; let the owner react
   to something real.
 - **Teach when needed.** If the owner does not understand a choice, explain it in
-  approachable terms and give them enough to decide. One path for everyone —
+  approachable terms and give them enough to decide. One path for everyone:
   technical owners state their preference when they have one; everyone else gets
   a recommendation and a short explanation. Progress never stalls on a word.
 
