@@ -57,13 +57,17 @@ Everything in this toolkit obeys two short laws. Read them before using anything
 
 ## Install
 
-The core skill is a markdown file agents read. There is no build step.
+The skill is markdown files agents read. There is no build step. The skill references its
+reference docs and templates by relative path, so install all three together:
 
 ```bash
-# copy the skill into a project (Claude Code convention shown; adapt for your harness)
+# copy the skill + its reference docs and templates into a project
+# (Claude Code convention shown; adapt for your harness)
+git clone --depth 1 https://github.com/aneym/pdd /tmp/pdd
 mkdir -p .claude/skills/pdd
-curl -fsSL https://raw.githubusercontent.com/aneym/pdd/main/skills/pdd/SKILL.md \
-  -o .claude/skills/pdd/SKILL.md
+cp /tmp/pdd/skills/pdd/SKILL.md .claude/skills/pdd/
+cp -R /tmp/pdd/reference /tmp/pdd/templates .claude/skills/pdd/
+rm -rf /tmp/pdd
 ```
 
 Then, in a session: invoke `/pdd`. On a brand-new project it **guides**: runs the grill, writes
