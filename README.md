@@ -14,9 +14,9 @@ It works the same whether the owner is an engineer or has never written code. Te
 state preferences when they have them; everyone else gets recommendations in plain language.
 When the owner doesn't understand a choice, the agent teaches. Progress never stalls on a word.
 
-## The four canonical pieces
+## The five canonical pieces
 
-A project is bootstrapped when these four things are decided, written down, and easy to change:
+A project is bootstrapped when these five things are decided, written down, and easy to change:
 
 1. **The purpose**: what the project is for, as a northstar plus a few *charters* (see below).
 2. **The tools available**: what already exists in the environment: services, accounts, APIs,
@@ -24,6 +24,8 @@ A project is bootstrapped when these four things are decided, written down, and 
 3. **The tools we're willing to have**: the acceptance boundary. What the owner will adopt,
    pay for, and depend on.
 4. **The tech stack**: chosen once, recorded, and not re-argued every session.
+5. **The roadmap**: the charters decomposed into parallel, seam-disjoint lanes, each
+   citing the charter it serves — how the owner organizes agents to do the work.
 
 All four are living canon: okay to change over time, never okay to be unwritten. Being unsure is
 fine too. An open question becomes a *figure-out-through-building* item, recorded as such.
@@ -84,6 +86,7 @@ was extracted from.
 ```
 skills/pdd/SKILL.md                  the core skill: guide or check a project's canon
 templates/PURPOSE.template.md        the northstar + charters skeleton
+templates/ROADMAP.template.md        charters -> parallel seam-disjoint lanes
 templates/decisions-ledger.template.md
 templates/claude-md-injection.md     the ≤10-line block a project's CLAUDE.md gets
 templates/surface.template.html      the one page the owner looks at (open items, synthesis, ramble box)

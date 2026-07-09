@@ -26,9 +26,9 @@ and teaching the owner whatever they need so progress never stalls on a word.
 - **Canon already exists** → **CHECK**. Audit it for gaps and drift, fix the
   mechanical problems automatically, and surface only the judgment calls.
 
-## The four canonical pieces
+## The five canonical pieces
 
-Every project's canon is drilled through these four. They become source of truth —
+Every project's canon is drilled through these five. They become source of truth —
 fine to change over time, but always canon:
 
 1. **The purpose** — the northstar plus its charters (what each major feature is
@@ -39,6 +39,12 @@ fine to change over time, but always canon:
    will adopt, pay for, or depend on going forward — and what they won't.
 4. **The tech stack** — chosen and recorded once, so it is not re-litigated every
    session.
+5. **The roadmap** — the charters decomposed into parallel, seam-disjoint lanes
+   (no two lanes own the same files), each citing the charter it serves, each
+   with its first atoms and its proof. This is how the owner organizes agents to
+   do the work: one owner chat per lane. Start it from
+   `templates/ROADMAP.template.md`; when the purpose is amended, the roadmap is
+   re-ranked in the same pass.
 
 ## The rules of every grill (apply in both modes)
 
@@ -73,6 +79,11 @@ you start. The load-bearing rules:
 - **Unknowns are first-class.** It is fine to be unsure. Record an unanswerable
   question as a *figure-out-through-building* item in the canon — a real entry,
   not a forced fake decision.
+- **Persist the canon immediately.** Commit (or durably save) the canon files
+  right after every GUIDE or CHECK pass and after each grill round — never leave
+  them only in a working tree. An unsaved canon can be destroyed by concurrent
+  work; it happened (a shared-tree reset wiped a live grill's surface and ledger,
+  2026-07-09).
 
 ## The one surface
 
@@ -113,6 +124,8 @@ Copy this checklist and check items off as you go:
         - `PURPOSE.md` ← `templates/PURPOSE.template.md`
         - a decisions ledger ← `templates/decisions-ledger.template.md`
         - the surface page ← `templates/surface.template.html`
+        - the roadmap ← `templates/ROADMAP.template.md` (charters → parallel
+          seam-disjoint lanes; may start sparse, never absent)
         - inject the block from `templates/claude-md-injection.md` into the
           project's `CLAUDE.md` (or `AGENTS.md`), filling in the two paths.
 - [ ] G6: Confirm the loop closes: open a fresh agent context, have it read
@@ -133,7 +146,9 @@ interrupts the owner for genuine judgment calls.
       a CLAUDE.md missing the block, charters with no "serves" line, ledger
       entries that never made it into the doc, absolutes that crept in, formatting
       the templates define, a surface page that has drifted into a status collage
-      or replays answered questions (regenerate it from the canon). Repair these
+      or replays answered questions (regenerate it from the canon), a missing
+      roadmap, a roadmap lane citing no charter or two lanes claiming the same
+      seam (wire the citation when derivable; otherwise it is a C3 item). Repair these
       without asking; report what you changed.
 - [ ] C3: **Surface only judgment calls** — a charter that no longer matches what
       the project does, a purpose statement contradicted by recent work, two
@@ -150,19 +165,27 @@ interrupts the owner for genuine judgment calls.
 Use the exit status so CHECK can run unattended in a loop: 0 and 1 need no human;
 2 stops for the owner.
 
-## Handoff — from purpose to work
+## The roadmap — from purpose to parallel work
 
-/pdd produces the *why* (purpose + charters). It does **not**
-decompose the project into buildable work — that is the atomic-readiness skill's
-job. Once the canon exists:
+/pdd produces the *why* (purpose + charters) AND the lane-level *what*: the
+roadmap (`templates/ROADMAP.template.md`) decomposes the charters into parallel,
+seam-disjoint lanes the owner can hand to agents — one owner chat per lane.
+Finer-grained decomposition (atoms, readiness rubrics, eval wiring) may pair
+with an atomic-readiness-style skill, but a canon without a roadmap is
+incomplete: the owner should never have to invent the work breakdown themselves.
 
-- Hand the charters to an **atomic-readiness**-style decomposition skill to break
-  each into independently-improvable lanes and atoms (seam-disjoint: parallel
-  lanes never share files, so one person can run many lanes without conflicts).
-- Enforce the citation rule: **every lane cites the charter it serves.** A lane
-  that serves no charter is a signal to check the purpose, not to invent one.
-- When the purpose is amended, re-weigh the work queue — atoms serving a
-  downgraded charter drop in priority; a new charter can raise new work.
+- **Seam-disjoint is the law of parallelism**: no two lanes own the same files,
+  so lanes never clobber each other. Shared hot files get one owner and a
+  declared touch protocol.
+- **Every lane cites the charter it serves.** A lane that serves no charter is a
+  signal to check the purpose, not to invent one.
+- Each lane carries: the charter it serves, a one-line goal, its first atoms,
+  the seams it owns, its proof (how "done" is verified independently), and
+  dependencies on other lanes.
+- **When the purpose is amended, the roadmap is re-ranked in the same pass** —
+  lanes serving a downgraded charter drop; a new charter opens a lane.
+- Live lane state (status, milestones, learnings) stays in the project's lane
+  docs, not in the roadmap — the roadmap is the map, not the log.
 
 The full mechanics of running a grill live (posting cards, collecting answers,
 appending a schema-checked ledger) come from the how-to-work engine — see the
