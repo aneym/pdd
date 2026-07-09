@@ -60,6 +60,16 @@ As each open item is answered it drops off the top and the synthesis grows. When
 the last open item is gone, the synthesis inherits the whole surface. That is
 the finished canon.
 
+## The canonical surface file
+
+In practice the surface is one HTML file per project, `docs/purpose/index.html`
+by default, started from `templates/surface.template.html`. The owner never has
+to hunt across pages: one link shows what needs them and where things stand, and
+a ramble box at the bottom lets them answer everything at once (they copy their
+notes and paste them into any agent chat). Agents regenerate this page from the
+canon files on every pass; content never lives only on the page. A surface that
+has drifted into a status report or a project log is broken and gets rebuilt.
+
 ## Relationship to the ledger
 
 The ledger (`decisions-ledger.template.md`) is the opposite surface: it is the

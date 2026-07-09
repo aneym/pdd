@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title><Project> — Purpose</title>
+<!--
+  FOR THE GENERATING AGENT — read this before you edit.
+
+  This is the ONE page the project owner looks at to work the purpose system.
+  Regenerate it on every GUIDE or CHECK pass, from the current canon.
+
+  Presentation law: the page carries only two things. Open items that need the
+  owner go at the top, each with a recommendation. Below that goes the synthesis
+  of where things stand. Never replay answered questions. Never show build status
+  of other work.
+
+  The ramble box is how the owner answers. They type thoughts in any order, click
+  Copy, and paste the dump back into an agent chat. Keep the box and its script.
+
+  Replace every <angle-bracket> prompt with real content. Keep the prose plain and
+  short. No em dashes, no rule-of-three flourishes, no filler adjectives.
+-->
+<style>
+  :root {
+    color-scheme: light dark;
+
+    --paper: light-dark(#f4f3f0, #02040a);
+    --surface: light-dark(#faf9f6, rgba(223,223,223,0.04));
+    --inset: light-dark(rgba(10,10,10,0.045), rgba(223,223,223,0.05));
+
+    --hairline: light-dark(rgba(10,10,10,0.14), rgba(223,223,223,0.14));
+    --hairline-hi: light-dark(rgba(10,10,10,0.32), rgba(223,223,223,0.34));
+
+    --ink: light-dark(#0a0a0a, #dfdfdf);
+    --ink-hi: light-dark(#000000, #ffffff);
+    --ink-soft: light-dark(rgba(10,10,10,0.78), rgba(223,223,223,0.82));
+    --muted: light-dark(rgba(10,10,10,0.55), rgba(223,223,223,0.55));
+    --dim: light-dark(rgba(10,10,10,0.42), rgba(223,223,223,0.42));
+    --faint: light-dark(rgba(10,10,10,0.28), rgba(223,223,223,0.28));
+    --on-accent: light-dark(#f4f3f0, #02040a);
+    --accent-fill: light-dark(#0a0a0a, #dfdfdf);
+    --accent-fill-hover: light-dark(#000000, #ffffff);
+    --accent-line: light-dark(rgba(10,10,10,0.32), rgba(223,223,223,0.34));
+    --accent-soft-hi: light-dark(rgba(10,10,10,0.09), rgba(223,223,223,0.1));
+    --confirm-text: light-dark(oklch(50% 0.14 150), oklch(72% 0.13 150));
+
+    --xs: 4px; --sm: 8px; --m: 12px; --l: 16px; --xl: 20px;
+    --xxl: 24px; --xxxl: 32px; --huge: 48px; --giant: 64px;
+
+    --radius: 2px;
+    --radius-pill: 999px;
+
+    --font-sans: "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    --font-mono: ui-monospace,"SF Mono",Menlo,Monaco,Consolas,monospace;
+
+    --size-xs: 11px; --size-sm: 12px; --size-md: 13.5px; --size-lg: 15px;
+    --size-xl: 16px; --size-xxl: 18px; --size-display: 26px; --size-display-lg: 32px;
+
+    --leading-tight: 1.15; --leading-snug: 1.3; --leading-body: 1.55;
+    --tracking-tighter: -0.03em; --tracking-tight: -0.015em;
+    --tracking-wide: 0.04em; --tracking-wider: 0.1em;
+    --weight-medium: 500;
+
+    --dur-fast: 120ms;
+    --ease: cubic-bezier(0.32,0.72,0,1);
+  }
+  :root[data-theme="light"] { color-scheme: light; }
+  :root[data-theme="dark"] { color-scheme: dark; }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: var(--size-md);
+    line-height: var(--leading-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection { background: var(--accent-soft-hi); }
+  :focus-visible { outline: 1px solid var(--accent-line); outline-offset: 2px; }
+
+  main { max-width: 62rem; margin: 0 auto; padding: var(--giant) var(--xl) var(--huge); }
+
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: var(--size-xs);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--dim);
+    margin: 0 0 var(--sm);
+  }
+  h1 {
+    font-size: var(--size-display-lg);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tighter);
+    font-weight: 400;
+    margin: 0 0 var(--m);
+  }
+  h2.section-title {
+    font-family: var(--font-mono);
+    font-size: var(--size-sm);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: var(--weight-medium);
+    margin: 0 0 var(--xs);
+  }
+  section { margin-top: var(--giant); }
+  .section-lead { color: var(--muted); font-size: var(--size-md); margin: 0 0 var(--xl); max-width: 46rem; }
+
+  header.page { border-bottom: 1px solid var(--hairline); padding-bottom: var(--xl); }
+  .status-line {
+    display: flex; flex-wrap: wrap; gap: var(--l);
+    font-family: var(--font-mono);
+    font-size: var(--size-xs);
+    color: var(--dim);
+    letter-spacing: var(--tracking-wide);
+  }
+  .status-line strong { color: var(--ink-soft); font-weight: var(--weight-medium); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    padding: var(--l) var(--xl);
+  }
+
+  /* Open items — one card per open decision */
+  .open-list { display: grid; gap: var(--m); }
+  .item { padding: var(--l) var(--xl); }
+  .item .q { color: var(--ink); font-size: var(--size-md); line-height: var(--leading-snug); }
+  .item .rec { margin-top: var(--sm); color: var(--ink-soft); font-size: var(--size-sm); line-height: var(--leading-snug); }
+  .item .rec strong { color: var(--ink); font-weight: var(--weight-medium); }
+
+  /* Empty state when nothing is open */
+  .empty {
+    border: 1px dashed var(--hairline-hi);
+    border-radius: var(--radius);
+    padding: var(--xl);
+    color: var(--muted);
+    font-size: var(--size-md);
+    line-height: var(--leading-body);
+  }
+  .empty strong { color: var(--ink-soft); font-weight: var(--weight-medium); }
+
+  .block { margin-top: var(--huge); }
+  .block:first-child { margin-top: 0; }
+
+  blockquote.hero {
+    margin: 0;
+    padding: var(--xxl) 0 var(--xxl) var(--xl);
+    border-left: 2px solid var(--accent-line);
+    font-size: var(--size-xxl);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-tight);
+    color: var(--ink);
+  }
+  blockquote.hero .em { color: var(--ink-hi); }
+  blockquote.hero .sub { display: block; margin-top: var(--l); font-size: var(--size-md); line-height: var(--leading-body); color: var(--muted); letter-spacing: normal; }
+
+  .ladder { display: grid; gap: var(--m); grid-template-columns: repeat(3, 1fr); margin-top: var(--l); }
+  .rung .n { font-family: var(--font-mono); font-size: var(--size-xxl); color: var(--faint); display: block; margin-bottom: var(--sm); }
+  .rung .t { color: var(--ink-soft); font-size: var(--size-md); line-height: var(--leading-snug); }
+
+  .laws { display: grid; gap: var(--m); grid-template-columns: repeat(2, 1fr); margin-top: var(--l); }
+  .law { padding: var(--l); }
+  .law h3 { margin: 0 0 var(--xs); font-size: var(--size-lg); letter-spacing: var(--tracking-tight); font-weight: var(--weight-medium); color: var(--ink); }
+  .law p { margin: 0; color: var(--muted); font-size: var(--size-sm); line-height: var(--leading-snug); }
+
+  .tiers { display: grid; gap: var(--m); grid-template-columns: repeat(3, 1fr); margin-top: var(--l); }
+  .tier h3 { font-family: var(--font-mono); font-size: var(--size-xs); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--muted); margin: 0 0 var(--sm); }
+  .tier ul { margin: 0; padding-left: var(--l); color: var(--ink-soft); font-size: var(--size-sm); line-height: var(--leading-snug); }
+  .tier li { margin-bottom: var(--xs); }
+
+  .charters { display: grid; gap: var(--m); grid-template-columns: repeat(2, 1fr); margin-top: var(--l); }
+  .charter { padding: var(--l); }
+  .charter h3 { margin: 0 0 var(--xs); font-size: var(--size-lg); letter-spacing: var(--tracking-tight); font-weight: var(--weight-medium); color: var(--ink); }
+  .charter p { margin: 0; color: var(--muted); font-size: var(--size-sm); line-height: var(--leading-snug); }
+  .charter .serves { display: block; margin-top: var(--sm); font-family: var(--font-mono); font-size: var(--size-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--faint); }
+
+  .stack { display: grid; gap: var(--m); grid-template-columns: repeat(3, 1fr); margin-top: var(--l); }
+  .stack .col { padding: var(--l); }
+  .stack h3 { font-family: var(--font-mono); font-size: var(--size-xs); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--muted); margin: 0 0 var(--sm); }
+  .stack p { margin: 0; color: var(--ink-soft); font-size: var(--size-sm); line-height: var(--leading-snug); }
+  .stack .exceptions { margin: var(--sm) 0 0; padding-left: var(--l); color: var(--muted); font-size: var(--size-sm); line-height: var(--leading-snug); }
+  .stack .exceptions li { margin-bottom: var(--xs); }
+
+  .unknowns { margin: var(--l) 0 0; padding: 0; list-style: none; border: 1px solid var(--hairline); border-radius: var(--radius); background: var(--surface); overflow: hidden; }
+  .unknowns li { padding: var(--m) var(--l); border-top: 1px solid var(--hairline); color: var(--muted); font-size: var(--size-sm); line-height: var(--leading-snug); }
+  .unknowns li:first-child { border-top: none; }
+  .unknowns li strong { color: var(--ink-soft); font-weight: var(--weight-medium); }
+
+  .ramble { margin-top: var(--xl); }
+  .ramble textarea {
+    width: 100%;
+    min-height: 9rem;
+    resize: vertical;
+    background: var(--inset);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: var(--size-md);
+    line-height: var(--leading-body);
+    padding: var(--m) var(--l);
+  }
+  .ramble textarea:focus { border-color: var(--hairline-hi); outline: none; }
+  .ramble textarea::placeholder { color: var(--faint); }
+  .ramble-bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--m); margin-top: var(--m); }
+  .btn {
+    appearance: none; -webkit-appearance: none;
+    font-family: var(--font-mono);
+    font-size: var(--size-xs);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    padding: var(--sm) var(--l);
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
+    background: var(--accent-fill);
+    color: var(--on-accent);
+    cursor: pointer;
+    transition: background var(--dur-fast) var(--ease);
+  }
+  .btn:hover { background: var(--accent-fill-hover); }
+  .ramble-hint { color: var(--dim); font-size: var(--size-sm); }
+  .copied { color: var(--confirm-text); }
+
+  footer { margin-top: var(--giant); padding-top: var(--xl); border-top: 1px solid var(--hairline); }
+  footer .kicker { margin-bottom: var(--m); }
+  .artifact-list { display: grid; gap: var(--xs); }
+  .artifact-list .row { display: flex; gap: var(--m); align-items: baseline; }
+  .artifact-list .label { color: var(--ink-soft); font-size: var(--size-sm); flex: none; min-width: 11rem; }
+  .artifact-list .path { font-family: var(--font-mono); font-size: var(--size-xs); color: var(--faint); word-break: break-all; }
+  .regen-note { margin-top: var(--l); color: var(--dim); font-size: var(--size-sm); line-height: var(--leading-snug); max-width: 46rem; }
+
+  @media (max-width: 46rem) {
+    main { padding: var(--xxl) var(--l) var(--xl); }
+    h1 { font-size: var(--size-display); }
+    .ladder, .laws, .tiers, .charters, .stack { grid-template-columns: 1fr; }
+    blockquote.hero { font-size: var(--size-xl); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <!-- HEADER -->
+  <header class="page">
+    <p class="kicker"><project name></p>
+    <h1>Purpose</h1>
+    <div class="status-line">
+      <span><strong><count></strong> need you</span>
+      <span><strong><grill state, e.g. grill open / grill closed></strong></span>
+      <span><strong><count></strong> decisions</span>
+      <span>Updated <strong><date></strong></span>
+    </div>
+  </header>
+
+  <!-- OPEN — NEEDS YOU (top, always) -->
+  <section id="open">
+    <h2 class="section-title">Open — needs you</h2>
+    <p class="section-lead">The only things that need a call from the owner, each with a recommendation. Answered questions live in the ledger, not here.</p>
+
+    <!--
+      IF there are open items, render one .item card each. Delete the .empty block.
+      IF nothing is open, render only the .empty block and delete the .open-list.
+    -->
+    <div class="open-list">
+      <div class="item card">
+        <div class="q"><one open question, in plain words the owner can answer></div>
+        <div class="rec"><strong>Recommendation:</strong> <the pick, then a short why in one sentence></div>
+      </div>
+      <!-- repeat .item for each open question -->
+    </div>
+
+    <div class="empty">
+      <strong>Nothing needs you right now.</strong> <one calm sentence: when an agent has a
+      question it will appear here first, with its recommendation.>
+    </div>
+  </section>
+
+  <!-- WHERE THINGS STAND (the synthesis) -->
+  <section id="stand">
+    <h2 class="section-title">Where things stand</h2>
+    <p class="section-lead">The current synthesis of the purpose canon. Drawn from the northstar doc.</p>
+
+    <div class="block">
+      <p class="kicker">The northstar</p>
+      <blockquote class="hero">
+        <one or two sentences: what the project makes and for whom. Wrap the sharpest phrase
+        in <span class="em">...</span>.>
+        <span class="sub"><what "working" looks like: the condition that means the project is
+        succeeding.></span>
+      </blockquote>
+    </div>
+
+    <div class="block">
+      <p class="kicker">The outcome ladder — outcomes only, no timelines</p>
+      <div class="ladder">
+        <div class="rung"><span class="n">1</span><span class="t"><the first outcome that must be true></span></div>
+        <div class="rung"><span class="n">2</span><span class="t"><the next outcome, once the first is solid></span></div>
+        <div class="rung"><span class="n">3</span><span class="t"><the further-out outcome></span></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <p class="kicker">How this works — laws for agents</p>
+      <div class="laws">
+        <!-- one .law per law in the northstar. Bold name in h3, one line in p. -->
+        <div class="law card"><h3><law name></h3><p><what agents should do, and briefly why. A default, not a ban.></p></div>
+        <div class="law card"><h3><law name></h3><p><...></p></div>
+        <div class="law card"><h3><law name></h3><p><...></p></div>
+        <div class="law card"><h3><law name></h3><p><...></p></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <p class="kicker">Boundaries</p>
+      <div class="tiers">
+        <div class="tier card">
+          <h3>Always</h3>
+          <ul>
+            <li><a thing an agent should just do, without asking></li>
+            <li><...></li>
+          </ul>
+        </div>
+        <div class="tier card">
+          <h3>Ask first (inline, in the moment)</h3>
+          <ul>
+            <li><a thing an agent should check before doing></li>
+            <li><...></li>
+          </ul>
+        </div>
+        <div class="tier card">
+          <h3>Posture, not bans (owner can override)</h3>
+          <ul>
+            <li><a soft default: how things usually go></li>
+            <li><...></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <p class="kicker">Charters — feature goals under the northstar</p>
+      <div class="charters">
+        <!-- one .charter per charter: name, what it is for, and what part of the purpose it serves -->
+        <div class="charter card"><h3><charter name></h3><p><what this feature is for, in a sentence or two.></p><span class="serves">Serves: <the part of the purpose it advances></span></div>
+        <div class="charter card"><h3><charter name></h3><p><...></p><span class="serves">Serves: <...></span></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <p class="kicker">Tools and stack — recorded once, not re-litigated</p>
+      <div class="stack">
+        <div class="col card">
+          <h3>In the environment today</h3>
+          <p><the external services and tools the project already uses.></p>
+        </div>
+        <div class="col card">
+          <h3>Stack</h3>
+          <p><the languages, frameworks, and infrastructure the project is built on.></p>
+        </div>
+        <div class="col card">
+          <h3>Adoption posture</h3>
+          <p><the default stance on bringing in new tools, in one sentence.></p>
+          <ul class="exceptions">
+            <li><a standing exception to the default, if any.></li>
+            <li><...></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <p class="kicker">Unknowns — figure out through building</p>
+      <ul class="unknowns">
+        <li><strong><open question></strong> — <why it stays open; what building will teach.></li>
+        <li><strong><open question></strong> — <...></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- RAMBLE BOX — how the owner answers -->
+  <section id="ramble-section">
+    <h2 class="section-title">New thoughts</h2>
+    <p class="section-lead">Ramble here in any order. Corrections, second guesses, fresh ideas. Copy it, then paste into any agent chat to answer or amend the canon.</p>
+    <div class="ramble card">
+      <p class="kicker">Ramble — any order</p>
+      <textarea id="ramble" placeholder="Type whatever's on your mind. Jump around; it all goes into the pile. When you're ready, copy it into chat."></textarea>
+      <div class="ramble-bar">
+        <button class="btn" id="copy-btn" type="button">Copy new thoughts</button>
+        <span class="ramble-hint" id="ramble-hint">Copies your notes, ready to paste into a session.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="kicker">Canonical files</p>
+    <div class="artifact-list">
+      <div class="row"><span class="label">Northstar</span><span class="path"><path to PURPOSE.md></span></div>
+      <div class="row"><span class="label">Decisions ledger</span><span class="path"><path to decisions ledger></span></div>
+      <div class="row"><span class="label">Grill</span><span class="path"><path to grill doc></span></div>
+    </div>
+    <p class="regen-note">This page is regenerated by agents. Edits land in those files, not here.</p>
+  </footer>
+
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  var copyBtn = document.getElementById("copy-btn");
+  var textarea = document.getElementById("ramble");
+  var hint = document.getElementById("ramble-hint");
+  var defaultHint = hint ? hint.textContent : "";
+  var hintTimer = null;
+
+  function payload() {
+    var body = textarea && textarea.value.trim() ? textarea.value.trim() : "(empty)";
+    return "New thoughts on the project purpose:\n\n" + body;
+  }
+
+  function flash(msg) {
+    if (!hint) return;
+    hint.textContent = msg;
+    hint.classList.add("copied");
+    if (hintTimer) clearTimeout(hintTimer);
+    hintTimer = setTimeout(function () {
+      hint.textContent = defaultHint;
+      hint.classList.remove("copied");
+    }, 2600);
+  }
+
+  function fallbackCopy(text) {
+    var tmp = document.createElement("textarea");
+    tmp.value = text;
+    tmp.setAttribute("readonly", "");
+    tmp.style.position = "absolute";
+    tmp.style.left = "-9999px";
+    document.body.appendChild(tmp);
+    tmp.select();
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    document.body.removeChild(tmp);
+    return ok;
+  }
+
+  if (copyBtn) {
+    copyBtn.addEventListener("click", function () {
+      var text = payload();
+      var done = "Copied your notes.";
+      var failed = "Copy failed. Select the text manually.";
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(done); },
+          function () { flash(fallbackCopy(text) ? done : failed); }
+        );
+      } else {
+        flash(fallbackCopy(text) ? done : failed);
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>

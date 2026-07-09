@@ -86,6 +86,7 @@ skills/pdd/SKILL.md                  the core skill: guide or check a project's 
 templates/PURPOSE.template.md        the northstar + charters skeleton
 templates/decisions-ledger.template.md
 templates/claude-md-injection.md     the ≤10-line block a project's CLAUDE.md gets
+templates/surface.template.html      the one page the owner looks at (open items, synthesis, ramble box)
 reference/presentation-law.md        the law every user-facing surface obeys
 reference/grill-protocol.md          how a good grill behaves
 ```
@@ -102,9 +103,6 @@ the human's screen honest the whole way.
 
 ## Open (figure-out-through-building)
 
-- **A visual walkthrough surface.** A bundled HTML page (open items on top, ramble box,
-  synthesis below) so owners can read everything and talk against it. A prototype exists in a
-  private project; generalizing it is next. *Recommendation: ship it as a template in v2.*
 - **how-to-work on npm.** Today it installs via `npx github:`. *Recommendation: publish both
   packages to npm once the skill stabilizes.*
 - **More case studies.** PDD's first full run produced a real product's canon in one session.

@@ -46,9 +46,9 @@ Read `reference/grill-protocol.md` and `reference/presentation-law.md` once befo
 you start. The load-bearing rules:
 
 - **Visual surface first.** Put the open questions in front of the owner — at the
-  top of whatever surface they are reading — each with your recommendation. Let
-  them **ramble against all of it at once, in any order.** Do not gate them
-  through one question at a time.
+  top of the project's one surface page (see "The one surface" below) — each with
+  your recommendation. Let them **ramble against all of it at once, in any
+  order.** Do not gate them through one question at a time.
 - **Every open item carries a recommendation.** When the owner has stated no
   preference, the recommendation is what moves things forward. Accept, tweak, or
   overrule — all faster than deciding from nothing.
@@ -74,6 +74,26 @@ you start. The load-bearing rules:
   question as a *figure-out-through-building* item in the canon — a real entry,
   not a forced fake decision.
 
+## The one surface
+
+The owner looks at exactly **one page** for the whole purpose system: a single
+HTML file, `docs/purpose/index.html` by default (adapt the path to the project's
+docs convention and record it in the ledger). It is the rendered form of the
+presentation law:
+
+1. **Open — needs you** at the top: one card per open item, question in plain
+   words, recommendation attached. Empty when nothing needs the owner.
+2. **Where things stand**: the synthesis of the canon, readable top to bottom.
+3. **A ramble box**: a text area with a copy button. The owner answers by typing
+   thoughts in any order, copying, and pasting the dump into any agent chat.
+
+Start it from `templates/surface.template.html`. Agents **regenerate** this page
+on every GUIDE or CHECK pass — it is a view over the canon files, not a place
+where content lives. The moment it accumulates status reports, project history,
+or anything belonging to a different effort, it has drifted; rebuild it from the
+canon. The mirror rule binds to this page: a fork raised in chat appears here,
+and an item answered in chat leaves here.
+
 ## GUIDE — bootstrap a new project
 
 Copy this checklist and check items off as you go:
@@ -92,13 +112,14 @@ Copy this checklist and check items off as you go:
 - [ ] G5: Write the outputs from the templates:
         - `PURPOSE.md` ← `templates/PURPOSE.template.md`
         - a decisions ledger ← `templates/decisions-ledger.template.md`
+        - the surface page ← `templates/surface.template.html`
         - inject the block from `templates/claude-md-injection.md` into the
           project's `CLAUDE.md` (or `AGENTS.md`), filling in the two paths.
 - [ ] G6: Confirm the loop closes: open a fresh agent context, have it read
       `PURPOSE.md` via the injected pointer, and check it can state the purpose and
       name the charters. If it can't, the canon is not clear enough — sharpen it.
 
-Done = the three outputs exist, they are plain-language and absolute-free, and a
+Done = the four outputs exist, they are plain-language and absolute-free, and a
 cold agent session can state what the project is for from them alone.
 
 ## CHECK — audit an existing project (doctor pattern)
@@ -106,12 +127,14 @@ cold agent session can state what the project is for from them alone.
 CHECK behaves like a doctor: it fixes mechanical drift on its own and only
 interrupts the owner for genuine judgment calls.
 
-- [ ] C1: Locate the canon (`PURPOSE.md`, the ledger, the CLAUDE.md injection).
-      Missing entirely? Recommend switching to GUIDE.
+- [ ] C1: Locate the canon (`PURPOSE.md`, the ledger, the CLAUDE.md injection,
+      the surface page). Missing entirely? Recommend switching to GUIDE.
 - [ ] C2: **Fix mechanical drift automatically** — stale paths in the injection,
       a CLAUDE.md missing the block, charters with no "serves" line, ledger
       entries that never made it into the doc, absolutes that crept in, formatting
-      the templates define. Repair these without asking; report what you changed.
+      the templates define, a surface page that has drifted into a status collage
+      or replays answered questions (regenerate it from the canon). Repair these
+      without asking; report what you changed.
 - [ ] C3: **Surface only judgment calls** — a charter that no longer matches what
       the project does, a purpose statement contradicted by recent work, two
       decisions in the ledger that conflict, a canonical piece never filled in.
