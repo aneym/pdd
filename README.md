@@ -61,12 +61,12 @@ The core skill is a markdown file agents read — no build step.
 
 ```bash
 # copy the skill into a project (Claude Code convention shown; adapt for your harness)
-mkdir -p .claude/skills/project-bootstrap
-curl -fsSL https://raw.githubusercontent.com/aneym/pdd/main/skills/project-bootstrap/SKILL.md \
-  -o .claude/skills/project-bootstrap/SKILL.md
+mkdir -p .claude/skills/pdd
+curl -fsSL https://raw.githubusercontent.com/aneym/pdd/main/skills/pdd/SKILL.md \
+  -o .claude/skills/pdd/SKILL.md
 ```
 
-Then, in a session: invoke `/project-bootstrap`. On a brand-new project it **guides** — runs
+Then, in a session: invoke `/pdd`. On a brand-new project it **guides** — runs
 the grill, writes the canon, injects the CLAUDE.md block. On an existing project it **checks** —
 repairs mechanical drift automatically and surfaces only true judgment calls.
 
@@ -78,7 +78,7 @@ was extracted from.
 ## What's in this repo
 
 ```
-skills/project-bootstrap/SKILL.md    the core skill — guide or check a project's canon
+skills/pdd/SKILL.md    the core skill — guide or check a project's canon
 templates/PURPOSE.template.md        the northstar + charters skeleton
 templates/decisions-ledger.template.md
 templates/claude-md-injection.md     the ≤10-line block a project's CLAUDE.md gets

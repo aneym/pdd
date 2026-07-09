@@ -1,5 +1,5 @@
 ---
-name: project-bootstrap
+name: pdd
 description: Take a project from zero to one by co-authoring its purpose canon with the owner through a grill, then wiring that canon into every agent session. Dual-mode — GUIDE a brand-new project through inception, or CHECK an existing project's canon for gaps and drift. Use when starting a new project, when a project has no shared northstar, when asked "what is this project actually for", or when an existing purpose doc has gone stale.
 when_to_use: Also use when onboarding agents to a project keeps requiring the same re-explanation, when work is drifting from what the project is for, or when a "set up the purpose / bootstrap this project" directive lands. Works for a completely non-technical owner as well as an expert.
 version: 0.1.0
@@ -7,7 +7,7 @@ metadata:
   tags: [purpose, bootstrap, grill, canon, northstar, agents, doctor]
 ---
 
-# project-bootstrap
+# /pdd
 
 Fill in a project's shared understanding so it guides every agent, end to end.
 The deliverable is a **purpose canon** — a short set of living, source-of-truth
@@ -129,7 +129,7 @@ Use the exit status so CHECK can run unattended in a loop: 0 and 1 need no human
 
 ## Handoff — from purpose to work
 
-project-bootstrap produces the *why* (purpose + charters). It does **not**
+/pdd produces the *why* (purpose + charters). It does **not**
 decompose the project into buildable work — that is the atomic-readiness skill's
 job. Once the canon exists:
 
