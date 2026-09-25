@@ -14,9 +14,9 @@ It works the same whether the owner is an engineer or has never written code. Te
 state preferences when they have them; everyone else gets recommendations in plain language.
 When the owner doesn't understand a choice, the agent teaches. Progress never stalls on a word.
 
-## The four canonical pieces
+## The five canonical pieces
 
-A project is bootstrapped when these four things are decided, written down, and easy to change:
+A project is bootstrapped when these five things are decided, written down, and easy to change:
 
 1. **The purpose**: what the project is for, as a northstar plus a few *charters* (see below).
 2. **The tools available**: what already exists in the environment: services, accounts, APIs,
@@ -24,8 +24,10 @@ A project is bootstrapped when these four things are decided, written down, and 
 3. **The tools we're willing to have**: the acceptance boundary. What the owner will adopt,
    pay for, and depend on.
 4. **The tech stack**: chosen once, recorded, and not re-argued every session.
+5. **The roadmap**: the charters decomposed into parallel, seam-disjoint lanes, each
+   citing the charter it serves — how the owner organizes agents to do the work.
 
-All four are living canon: okay to change over time, never okay to be unwritten. Being unsure is
+All five are living canon: okay to change over time, never okay to be unwritten. Being unsure is
 fine too. An open question becomes a *figure-out-through-building* item, recorded as such.
 
 ## The purpose tree
@@ -39,9 +41,8 @@ purpose          the northstar: one paragraph saying what this is for and what s
 - A lane that can't name its charter is either missing purpose or shouldn't exist.
 - When the purpose is amended, what gets built next is re-ranked, so purpose stays upstream of
   the work instead of drifting behind it.
-- For decomposing charters into independently improvable lanes and atoms, pair PDD with a
-  readiness/decomposition skill (we use atomic-readiness-style loops; any seam-disciplined
-  decomposition works).
+- PDD maps charters to lanes in the roadmap. For finer-grained atoms and readiness
+  checks, pair it with a decomposition skill (we use atomic-readiness-style loops).
 
 ## The two laws
 
@@ -84,6 +85,7 @@ was extracted from.
 ```
 skills/pdd/SKILL.md                  the core skill: guide or check a project's canon
 templates/PURPOSE.template.md        the northstar + charters skeleton
+templates/ROADMAP.template.md        charters -> parallel seam-disjoint lanes
 templates/decisions-ledger.template.md
 templates/claude-md-injection.md     the ≤10-line block a project's CLAUDE.md gets
 templates/surface.template.html      the one page the owner looks at (open items, synthesis, ramble box)
@@ -98,7 +100,7 @@ Spec Kit proved constitution-consulted-every-phase; northstar.md patterns exist 
 over; Ralph-style loops proved externalized state per atomic task. PDD adopts those shapes.
 What PDD adds is the combination nobody packaged: the interview as the origination mechanism
 (a grill to shared understanding, not a form to fill), a purpose tree instead of a linear spec
-chain, and work derived from purpose rather than task decomposition. The presentation law keeps
+chain, and work derived from purpose rather than a task-list-first plan. The presentation law keeps
 the human's screen honest the whole way.
 
 ## Open (figure-out-through-building)
