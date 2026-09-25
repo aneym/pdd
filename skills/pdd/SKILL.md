@@ -26,9 +26,9 @@ and teaching the owner whatever they need so progress never stalls on a word.
 - **Canon already exists** → **CHECK**. Audit it for gaps and drift, fix the
   mechanical problems automatically, and surface only the judgment calls.
 
-## The four canonical pieces
+## The five canonical pieces
 
-Every project's canon is drilled through these four. They become source of truth —
+Every project's canon is drilled through these five. They become source of truth —
 fine to change over time, but always canon:
 
 1. **The purpose** — the northstar plus its charters (what each major feature is
@@ -39,6 +39,12 @@ fine to change over time, but always canon:
    will adopt, pay for, or depend on going forward — and what they won't.
 4. **The tech stack** — chosen and recorded once, so it is not re-litigated every
    session.
+5. **The roadmap** — the charters decomposed into parallel, seam-disjoint lanes
+   (no two lanes own the same files), each citing the charter it serves, each
+   with its first atoms and its proof. This is how the owner organizes agents to
+   do the work: one owner chat per lane. Start it from
+   `templates/ROADMAP.template.md`; when the purpose is amended, the roadmap is
+   re-ranked in the same pass.
 
 ## The rules of every grill (apply in both modes)
 
@@ -73,6 +79,11 @@ you start. The load-bearing rules:
 - **Unknowns are first-class.** It is fine to be unsure. Record an unanswerable
   question as a *figure-out-through-building* item in the canon — a real entry,
   not a forced fake decision.
+- **Persist the canon after each round.** Durably save the canon files after
+  every GUIDE or CHECK pass and each grill round. Commit them when this lane owns
+  the files and a commit is authorized; do not bundle unrelated work or overwrite
+  another lane. A shared-tree reset once wiped an uncommitted grill surface and
+  ledger.
 
 ## The one surface
 
@@ -101,26 +112,33 @@ Copy this checklist and check items off as you go:
 - [ ] G1: Understand the project in one exchange — what is being made, for whom,
       and what "working" would look like. Lead the owner toward a purpose that
       *expands* ambition rather than scoping it down.
-- [ ] G2: Grill the purpose. Open the four canonical pieces as questions on the
-      surface (top, each with a recommendation). Let the owner ramble; distill
-      each settled point to the ledger and drop it from view. Derive what you can.
+- [ ] G2: Grill the purpose, available tools, acceptance boundary, and stack as
+      genuine open questions on the surface (top, each with a recommendation).
+      Let the owner ramble; distill each settled point to the ledger and drop it
+      from view. Derive what you can. Build the fifth piece, the roadmap, from
+      the charters in G5; ask only when a real owner choice remains.
 - [ ] G3: Draw out the **charters** — the few, stable goals of the major features,
       each stating what it is for and why (which part of the purpose it serves).
       Keep them few and durable.
 - [ ] G4: Record **unknowns** as figure-out-through-building items rather than
       forcing decisions.
 - [ ] G5: Write the outputs from the templates:
-        - `PURPOSE.md` ← `templates/PURPOSE.template.md`
+        - `PURPOSE.md` ← `templates/PURPOSE.template.md` (include the roadmap path
+          so a new agent can find the lane map)
         - a decisions ledger ← `templates/decisions-ledger.template.md`
         - the surface page ← `templates/surface.template.html`
+        - the roadmap ← `templates/ROADMAP.template.md` (charters → parallel
+          seam-disjoint lanes; may start sparse, never absent)
         - inject the block from `templates/claude-md-injection.md` into the
           project's `CLAUDE.md` (or `AGENTS.md`), filling in the two paths.
 - [ ] G6: Confirm the loop closes: open a fresh agent context, have it read
       `PURPOSE.md` via the injected pointer, and check it can state the purpose and
-      name the charters. If it can't, the canon is not clear enough — sharpen it.
+      name the charters and find the roadmap's lanes. If it can't, sharpen the
+      canon or its pointers.
 
-Done = the four outputs exist, they are plain-language and absolute-free, and a
-cold agent session can state what the project is for from them alone.
+Done = all five outputs exist (purpose, ledger, surface, roadmap, and agent
+injection), they are plain-language and absolute-free, and a cold agent session
+can state what the project is for and name its lanes from them alone.
 
 ## CHECK — audit an existing project (doctor pattern)
 
@@ -128,13 +146,16 @@ CHECK behaves like a doctor: it fixes mechanical drift on its own and only
 interrupts the owner for genuine judgment calls.
 
 - [ ] C1: Locate the canon (`PURPOSE.md`, the ledger, the CLAUDE.md injection,
-      the surface page). Missing entirely? Recommend switching to GUIDE.
+      the surface page, and the roadmap). Missing entirely? Recommend switching
+      to GUIDE.
 - [ ] C2: **Fix mechanical drift automatically** — stale paths in the injection,
       a CLAUDE.md missing the block, charters with no "serves" line, ledger
       entries that never made it into the doc, absolutes that crept in, formatting
       the templates define, a surface page that has drifted into a status collage
-      or replays answered questions (regenerate it from the canon). Repair these
-      without asking; report what you changed.
+      or replays answered questions (regenerate it from the canon), a missing
+      roadmap, a roadmap lane citing no charter or two lanes claiming the same
+      seam (repair only when the correct citation or owner is derivable;
+      otherwise make it a C3 item). Report what you changed.
 - [ ] C3: **Surface only judgment calls** — a charter that no longer matches what
       the project does, a purpose statement contradicted by recent work, two
       decisions in the ledger that conflict, a canonical piece never filled in.
@@ -150,19 +171,27 @@ interrupts the owner for genuine judgment calls.
 Use the exit status so CHECK can run unattended in a loop: 0 and 1 need no human;
 2 stops for the owner.
 
-## Handoff — from purpose to work
+## The roadmap — from purpose to parallel work
 
-/pdd produces the *why* (purpose + charters). It does **not**
-decompose the project into buildable work — that is the atomic-readiness skill's
-job. Once the canon exists:
+/pdd produces the *why* (purpose + charters) AND the lane-level *what*: the
+roadmap (`templates/ROADMAP.template.md`) decomposes the charters into parallel,
+seam-disjoint lanes the owner can hand to agents — one owner chat per lane.
+Finer-grained decomposition (atoms, readiness rubrics, eval wiring) may pair
+with an atomic-readiness-style skill, but a canon without a roadmap is
+incomplete: the owner should never have to invent the work breakdown themselves.
 
-- Hand the charters to an **atomic-readiness**-style decomposition skill to break
-  each into independently-improvable lanes and atoms (seam-disjoint: parallel
-  lanes never share files, so one person can run many lanes without conflicts).
-- Enforce the citation rule: **every lane cites the charter it serves.** A lane
-  that serves no charter is a signal to check the purpose, not to invent one.
-- When the purpose is amended, re-weigh the work queue — atoms serving a
-  downgraded charter drop in priority; a new charter can raise new work.
+- **Seam-disjoint is the law of parallelism**: no two lanes own the same files,
+  so lanes never clobber each other. Shared hot files get one owner and a
+  declared touch protocol.
+- **Every lane cites the charter it serves.** A lane that serves no charter is a
+  signal to check the purpose, not to invent one.
+- Each lane carries: the charter it serves, a one-line goal, its first atoms,
+  the seams it owns, its proof (how "done" is verified independently), and
+  dependencies on other lanes.
+- **When the purpose is amended, the roadmap is re-ranked in the same pass** —
+  lanes serving a downgraded charter drop; a new charter opens a lane.
+- Live lane state (status, milestones, learnings) stays in the project's lane
+  docs, not in the roadmap — the roadmap is the map, not the log.
 
 The full mechanics of running a grill live (posting cards, collecting answers,
 appending a schema-checked ledger) come from the how-to-work engine — see the
